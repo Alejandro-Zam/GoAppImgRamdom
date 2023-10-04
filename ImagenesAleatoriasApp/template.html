@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Página de Imágenes Aleatorias</title>
+    <!---Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .custom-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .custom-card {
+        border: 6px solid #212529;
+    
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+                    class="bi bi-bootstrap-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z" />
+                    <path
+                        d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-8zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396H5.062z" />
+                </svg>
+            </a>
+            <div class="container-fluid justify-content-center">
+                <a class="navbar-brand">
+                    <h1>Página de Imágenes Aleatorias con Bootstrap </h1>
+                    <p>Host: {{.Hostname}}</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="card-group">
+            {{range .Imagenes}}
+            <div class="card text-center d-flex justify-content-center align-items-center custom-card">
+                <img src="data:image/jpeg;base64,{{.Data}}" class="card-img-top custom-img mx-auto" alt="{{.Name}}">
+                <div class="card-footer">
+                    <small class="text-muted">{{.Name}}</small>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <h2>Computación en la nube</h2>
+            <p>José Alejandro Zambrano</p>
+            <p>Octubre del 2023</p>
+        </div>
+    </footer>
+
+
+</body>
+</body>
+
+</html>
